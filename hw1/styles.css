@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    width: 99%;
+    height: 100%;
+    overflow: hidden;
+    background: #202124;
+}
+p {
+    margin: 0 0 9px 18px;
+    color: #fff;
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+}
+.top {
+    width: 100%;
+    height: 592px;
+    padding: 10px 0px 0px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.left-side {
+    width: 956px;
+    height: 592px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.mic-off {
+    max-width: 29.25px;
+    align-self: flex-end;
+    position: relative;
+    right: 12px;
+    top: 12px;
+}
+.pin-name {
+    max-width: 70px;
+    align-self: flex-start;
+}
+.center-profile {
+    align-self: center;
+}
+.profile {
+    max-width: 180px;
+    max-height: 180px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+.three-button {
+    width: 143px;
+    z-index: 1;
+    position: relative;
+    top: -50%;
+    left: -50%;
+    transform: translate(50%, 50%);
+    opacity: 0;
+    transition: opacity .3s linear;
+}
+.left-side:hover .three-button {
+    opacity: .6;
+    transition: opacity .3s linear;
+}
+.left-side:hover .three-button:hover{
+    opacity: .9;
+    transition: opacity .1s linear;
+}
+
+.right-side {
+    width: 360px;
+    height: 85%;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.right-side > div {
+    width: 174px;
+    height: 155px;
+}
+.block {
+    width: 174px;
+    height: 145px;
+    background: #3c4043;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.block-last {
+    width: 257px;
+}
+.profile-small {
+    width: 52.2px;
+    height: 52.2px;
+    align-self: center;
+}
+.profile-big {
+    width: 77.1px;
+    height: 77.1px;
+    align-self: center;
+}
+.participant-5 {
+    position: relative;
+    left: 12.5%;
+}
+
+.bottom {
+    padding: 15px 0 0 0;
+    width: 100%;
+    height: 90px;
+}
+.bottom-bar {
+    max-width: 100%;
+}
