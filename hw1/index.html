@@ -2,15 +2,16 @@
 <html>
 
     <head>
-        <meta charset="utf-8"/>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Meet - jtr-znsu-ihr</title>
-        <link rel="stylesheet" type="text/css" href="styles.css"/>
+        <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
 
     <body>
         <div class="top">
             <div class="left-side">
-                <img class="mic-off" src="src/mic-off.png"/>
+                <img class="mute" src="src/mute.png"/>
                 <div class="center-profile">
                     <img class="profile" src="src/gleam_eyes.png"/>
                     <img class="three-button" src="src/hover.png"/>
@@ -18,37 +19,37 @@
                 <img class="pin-name" src="src/pin-name.png"/>
             </div>
             <div class="right-side">
-                <div>
+                <div class="outer-block">
                     <div class="block">
-                        <img class="mic-off" src="src/mic-off-right.png"/>
+                        <img class="mute" src="src/mute-right.png"/>
                         <img class="profile-small" src="src/k1.png"/>
                         <p>kirito-1</p>
                     </div>
                 </div>
-                <div>
+                <div class="outer-block">
                     <div class="block">
-                        <img class="mic-off" src="src/mic-off-right.png"/>
+                        <img class="mute" src="src/mute-right.png"/>
                         <img class="profile-small" src="src/k2.png"/>
                         <p>kirito-2</p>
                     </div>
                 </div>
-                <div>
+                <div class="outer-block">
                     <div class="block">
-                        <img class="mic-off" src="src/mic-off-right.png"/>
+                        <img class="mute" src="src/mute-right.png"/>
                         <img class="profile-small" src="src/k3.png"/>
                         <p>kirito-3</p>
                     </div>
                 </div>
-                <div>
+                <div class="outer-block">
                     <div class="block">
-                        <img class="mic-off" src="src/mic-off-right.png"/>
+                        <img class="mute" src="src/mute-right.png"/>
                         <img class="profile-small" src="src/k4.png"/>
                         <p>kirito-4</p>
                     </div>
                 </div>
-                <div class="participant-5">
+                <div class="outer-block-last">
                     <div class="block block-last">
-                        <img class="mic-off" src="src/mic-off-right.png"/>
+                        <img class="mute" src="src/mute-right.png"/>
                         <img class="profile-big" src="src/k5.png"/>
                         <p>kirito-5</p>
                     </div>
@@ -56,7 +57,78 @@
             </div>
         </div>
         <div class="bottom">
-            <img class="bottom-bar" src="src/bottom-bar.png"/>
+            <img class="bottom-left" src="src/bottom-bar/bottom-left.png"/>
+            <div class="bottom-center">
+                <div>
+                    <div class="mic-switch">
+                        <input id="0" type="checkbox" />
+                        <label for="0"></label>
+                        <div class="hint hint-0">
+                            <p>開啟麥克風 (Ctrl + D)</p>
+                        </div>
+                        <div class="hint hint-1">
+                            <p>關閉麥克風 (Ctrl + D)</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img class="button" src="src/bottom-bar/webcam.png"/>
+                    <div class="hint hint-2">
+                        <p>開啟攝影機 (Ctrl + E)</p>
+                    </div>
+                </div>
+                <div>
+                    <img class="button" src="src/bottom-bar/screen-sharing.png"/>
+                    <div class="hint hint-3">
+                        <p>立即分享螢幕畫面</p>
+                    </div>
+                </div>
+                <div>
+                    <img class="button" src="src/bottom-bar/more-options.png"/>
+                    <div class="hint hint-4">
+                        <p>更多選項</p>
+                    </div>
+                </div>
+                <div>
+                    <img class="button" src="src/bottom-bar/exit-call.png"/>
+                    <div class="hint hint-5">
+                        <p>退出通話</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-right">
+                <div>
+                    <img class="button-1" src="src/bottom-bar/meeting-detail.png"/>
+                    <div class="hint hint-6">
+                        <p>會議詳細資料</p>
+                    </div>
+                </div>
+                <div>
+                    <img class="number" src="src/bottom-bar/participants-number.png"/>
+                    <img class="button-1" src="src/bottom-bar/all-participants.png"/>
+                    <div class="hint hint-7">
+                        <p>顯示所有參與者</p>
+                    </div>
+                </div>
+                <div>
+                    <img class="button-1" src="src/bottom-bar/comment.png"/>
+                    <div class="hint hint-8">
+                        <p>與所有參與者進行即時通訊</p>
+                    </div>
+                </div>
+                <div>
+                    <img class="button-1" src="src/bottom-bar/activity.png"/>
+                    <div class="hint hint-9">
+                        <p>活動</p>
+                    </div>
+                </div>
+                <div>
+                    <img class="button-1" src="src/bottom-bar/host-options.png"/>
+                    <div class="hint hint-10">
+                        <p>主辦人控制項</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 

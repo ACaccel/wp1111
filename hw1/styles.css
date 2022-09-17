@@ -2,34 +2,33 @@
     box-sizing: border-box;
 }
 html, body {
-    width: 99%;
+    width: 100%;
     height: 100%;
+    margin: 0px;
     overflow: hidden;
     background: #202124;
-}
-p {
-    margin: 0 0 9px 18px;
-    color: #fff;
-    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 .top {
     width: 100%;
-    height: 592px;
-    padding: 10px 0px 0px 10px;
+    height: 85%;
+    padding: 10px 10px 0px 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    flex-wrap: wrap;
 }
 
 .left-side {
-    width: 956px;
-    height: 592px;
+    width: 70%;
+    height: 100%;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-self: center;
 }
-.mic-off {
+.mute {
     max-width: 29.25px;
     align-self: flex-end;
     position: relative;
@@ -41,21 +40,23 @@ p {
     align-self: flex-start;
 }
 .center-profile {
+    width: 180px;
+    height: 180px;
     align-self: center;
+    position: relative;
 }
 .profile {
-    max-width: 180px;
-    max-height: 180px;
+    width: 100%;
     position: relative;
     left: 50%;
     transform: translate(-50%, 0%);
 }
 .three-button {
-    width: 143px;
+    max-width: 143px;
     z-index: 1;
-    position: relative;
-    top: -50%;
-    left: -50%;
+    position: absolute;
+    top: 25%;
+    left: -30%;
     transform: translate(50%, 50%);
     opacity: 0;
     transition: opacity .3s linear;
@@ -70,51 +71,255 @@ p {
 }
 
 .right-side {
-    width: 360px;
-    height: 85%;
-    align-self: center;
+    width: 30%;
+    height: 100%;
+    padding: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-content: center;
+    align-self: center;
     flex-wrap: wrap;
 }
-.right-side > div {
-    width: 174px;
-    height: 155px;
+.right-side p {
+    margin: 0 0 9px 18px;
+    color: #fff;
+    font-family: "Roboto",Arial,sans-serif;
+}
+.outer-block {
+    width: 48%;
+    height: 28%;
+    padding: 0 10px 10px 0;
 }
 .block {
-    width: 174px;
-    height: 145px;
+    width: 100%;
+    height: 100%;
     background: #3c4043;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
+.outer-block-last {
+    width: 67%;
+    height: 30%;
+    padding: 0 10px 10px 0;
+}
 .block-last {
-    width: 257px;
+    position: relative;
+    left: 25%;
 }
 .profile-small {
-    width: 52.2px;
-    height: 52.2px;
+    max-height: 55px;
     align-self: center;
 }
 .profile-big {
-    width: 77.1px;
-    height: 77.1px;
+    max-height: 70px;
     align-self: center;
-}
-.participant-5 {
-    position: relative;
-    left: 12.5%;
-}
+} 
 
 .bottom {
     padding: 15px 0 0 0;
     width: 100%;
     height: 90px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
-.bottom-bar {
-    max-width: 100%;
+.bottom-left {
+    width: 226px;
+    height: 75px;
+    align-self: center;
+}
+.bottom-center {
+    width: 291px;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+}
+.bottom-center > div {
+    position: relative;
+}
+.button {
+    height: 45px;
+}
+.mic-switch {
+    width: 45px;
+    height: 45px;
+    position: relative;
+}
+.mic-switch input[type="checkbox"] {
+    display: none;
+}
+.mic-switch label {
+    width: 100%;
+    height: 100%;
+    background-image: url(src/bottom-bar/mic-off.png);
+    background-size: contain;
+    position: absolute;
+}
+.mic-switch input[type="checkbox"]:checked + label {
+    background-image: url(src/bottom-bar/mic-on.png);
+    background-size: contain;
+}
+.mic-switch input[type="checkbox"]:checked ~ .hint-1 {
+    display: flex;
+}
+
+.hint {
+    background: #3c4043;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-family: "Roboto",Arial,sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity .1s linear;
+}
+.hint-0 {
+    width: 150px;
+    height: 25px;
+    position: absolute;
+    top: -30px;
+    left: -50px;
+}
+.hint-1 {
+    width: 150px;
+    height: 25px;
+    position: absolute;
+    top: -30px;
+    left: -50px;
+    z-index: 1;
+    display: none;
+}
+.hint-2 {
+    width: 150px;
+    height: 25px;
+    position: absolute;
+    top: -30px;
+    left: -50px;
+}
+.hint-3 {
+    width: 130px;
+    height: 25px;
+    position: absolute;
+    top: -30px;
+    left: -45px;
+}
+.hint-4 {
+    width: 75px;
+    height: 25px;
+    position: absolute;
+    top: -30px;
+    left: -15px;
+}
+.hint-5 {
+    width: 75px;
+    height: 25px;
+    position: absolute;
+    top: -30px;
+    left: -5px;
+}
+.hint-6 {
+    width: 100px;
+    height: 25px;
+    position: absolute;
+    top: -28px;
+    left: -28px;
+}
+.hint-7 {
+    width: 115px;
+    height: 25px;
+    position: absolute;
+    top: -28px;
+    left: -35px;
+}
+.hint-8 {
+    width: 185px;
+    height: 25px;
+    position: absolute;
+    top: -28px;
+    left: -70px;
+}
+.hint-9 {
+    width: 45px;
+    height: 25px;
+    position: absolute;
+    top: -28px;
+    left: 0px;
+}
+.hint-10 {
+    width: 100px;
+    height: 25px;
+    position: absolute;
+    top: -28px;
+    left: -55px;;
+}
+.mic-switch:hover > .hint, .button:hover + .hint, .button-1:hover + .hint {
+    opacity: 1;
+    transition: opacity .1s linear;
+}
+
+.bottom-right {
+    width: 240px;
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    position: relative;
+}
+.bottom-right > div {
+    position: relative;
+}
+.button-1 {
+    height: 48px;
+}
+.number {
+    width: 24px;
+    position: absolute;
+    top: -6px;
+    left: 23px;
+}
+
+@media (max-height: 550px) {
+    .left-side {
+        width: 30%;
+    }
+    .right-side {
+        width: 70%;
+    }
+    .outer-block, .outer-block-last {
+        width: 200px;
+        height: 150px;
+    }
+    .block-last {
+        position: static;
+    }
+}
+@media (max-height: 430px) {
+    body {
+        justify-content: center;
+    }
+    .top {
+        display: none;
+    }
+}
+@media (max-width: 1000px) {
+    .left-side {
+        width: 100%;
+    }
+    .right-side {
+        display: none;
+    }
+}
+@media (max-width: 780px) {
+    .bottom {
+        justify-content: center;
+    }
+    .bottom-left, .bottom-right {
+        display: none;
+    }
 }
