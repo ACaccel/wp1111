@@ -12,10 +12,6 @@ app.use(cors());
 app.use(express.json());
 app.use('/', routes);
 
-app.get('/', (req, res) => {
-    res.send('Received a GET HTTP method');
-});
-
 app.listen(port, () => {
     console.log(`App listening on port ${port}!`);
 });
