@@ -44,28 +44,45 @@ const useWordle = (solution) => {
         // console.log("Press Enter!!!! Store and reset curGuess!");
         // TODO 4: Check each wordbox's color in `curGuess` and update `guess`, `turn` and `curGuess`
         // Hint: check green first, and then check yellow.
-        printTest();
+        
+        let guess = guesses;
+        let set = [];
         for(let i = 0; i < 5; i++) {
-            let guess = guesses;
-            if(curGuess[i] === solution[i])
-                guess[turn].push({char: curGuess[i], color: 'green'})
-            else
-                guess[turn].push({char: curGuess[i], color: 'grey'})
-            setGuesses(guess);
+            set.push(solution[i]);
+        }
+
+        let charDic = usedChars;
+        guess[turn] = [];
+        for(let i = 0; i < 5; i++) {
+            let obj = {char: curGuess[i], color: 'grey'};
+            charDic[obj.char] = obj.color;
+            if(obj.char === set[i]) {
+                obj.color = 'green';
+                set[i] = '';
+                charDic[obj.char] = obj.color;
+            }
+            for(let j = 0; j < 5; j++) {
+                if(obj.char === set[j]) {
+                    obj.color = 'yellow';
+                    charDic[obj.char] = obj.color;
+                    break;
+                }
+            }
+            guess[turn].push(obj);
         }
         // add the formatted guess generated into guesses.
-        
+        setGuesses(guess);
+        console.log(guesses);
         // turn += 1
-        turn++;
+        setTurn(turn + 1);
         // set curGuess to default
-
-
+        setCurGuess('');
         // TODO 5: update parameters, check each char usage and show in `Keyboard` and reset `curGuess`.
         // 5-1) check if curGuess === solution, if true, set `isCorrect` to true.
-        
-        
+        if(curGuess === solution)
+            setIsCorrect(true);
         // 5-2) usedChars update
-        
+        setUsedChars(charDic);
         
     }
 

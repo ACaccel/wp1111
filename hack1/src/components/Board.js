@@ -20,7 +20,7 @@ const Board = ({ turn, guesses, curGuess }) => {
             {list.map(l => {
                 return(l === turn ? 
                     <CurRow id={'row_' + l} key={'row_' + l} curGuess={curGuess} rowIdx={l}></CurRow> 
-                    : <Row id={'row_' + l} key={'row_' + l} guess={guesses} rowIdx={l}></Row>)})}
+                    : <Row id={'row_' + l} key={'row_' + l} guess={guesses[l]} rowIdx={l}></Row>)})}
         </div>
     )
 };
