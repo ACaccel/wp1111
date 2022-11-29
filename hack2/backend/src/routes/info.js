@@ -150,19 +150,19 @@ exports.GetInfo = async (req, res) => {
     try {
         const obj = await Info.findOne({ id });
         if (obj) {
-            console.log(obj)
+            console.log(obj);
             res.status(200).send({ message: 'success', contents: {
                 time: obj.time,
                 name: obj.name,
                 price: obj.price,
                 distance: obj.distance,
                 tag: obj.tag
-            } })
+            } });
         }
         else {
-            res.status(200).send({ message: 'error', contents: 'not found' })
+            res.status(200).send({ message: 'error', contents: 'not found' });
         }
     } catch(err) {
-        res.status(403).send({ message: 'error', contents: err })
+        res.status(403).send({ message: 'error', contents: err });
     }
 }
