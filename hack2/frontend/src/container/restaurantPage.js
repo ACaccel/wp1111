@@ -24,6 +24,15 @@ const RestaurantPage = () => {
     const [loading, setLoading] = useState(true)
     const getInfo = async () => {
         // TODO Part III-2: get a restaurant's info
+        const {
+            data: { message, contents },
+        } = await instance.get('/getInfo', {
+            params: { id }
+        });
+        if (message === 'success')
+            setInfo(contents);
+
+        console.log('contents', contents)
     }
     const getComments = async () => {
         // TODO Part III-3: get a restaurant's comments 
@@ -39,7 +48,7 @@ const RestaurantPage = () => {
     }, [comments])
 
     /* TODO Part III-2-b: calculate the average rating of the restaurant */
-    let rating = 0;
+    let rating = 3.7;
     
     return (
         <div className='restaurantPageContainer'>

@@ -25,9 +25,10 @@ const SearchPage = () => {
         } = await instance.get('/getSearch', {
             params: state
         });
-        setRestaurant(contents);
+        if (message === 'success')
+            setRestaurant(contents);
 
-        console.log(state)
+        console.log('state', state)
         console.log(message, contents)
     }
 
@@ -39,6 +40,12 @@ const SearchPage = () => {
     const navigate = useNavigate();
     const ToRestaurant = (id) => {
         // TODO Part III-1: navigate the user to restaurant page with the corresponding id
+        console.log('id: ', id)
+        navigate(`/restaurant/${id}`, {
+            state: {
+                
+            }
+        });
     }
     const getPrice = (price) => {
         let priceText = ""
@@ -63,21 +70,19 @@ const SearchPage = () => {
             {
                 restaurants.map((item) => (
                     // TODO Part I-2: search page front-end
-                    <>
-                        <div className='resBlock' id={item.id} key={item.id}>
-                            <div className='resImgContainer'>
-                                <img className='resImg' src={item.img} />
-                            </div>
-                            <div className='resInfo'>
-                                <div className='title'>
-                                    <p className='name'>{item.name}</p>
-                                    <p className='price'>{getPrice(item.price)}</p>
-                                    <p className='distance'>{`${item.distance/1000} km`}</p>
-                                </div>
-                                <p className='description'>{getDescription(item.tag)}</p>
-                            </div>
+                    <div className='resBlock' id={item.id} key={item.id} onClick={() => {ToRestaurant(item.id)}}>
+                        <div className='resImgContainer'>
+                            <img className='resImg' src={item.img} />
                         </div>
-                    </>
+                        <div className='resInfo'>
+                            <div className='title'>
+                                <p className='name'>{item.name}</p>
+                                <p className='price'>{getPrice(item.price)}</p>
+                                <p className='distance'>{`${item.distance/1000} km`}</p>
+                            </div>
+                            <p className='description'>{getDescription(item.tag)}</p>
+                        </div>
+                    </div>
                 ))
             }
         </div>

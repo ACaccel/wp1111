@@ -40,7 +40,6 @@ const Filter = ({ priceFilter, setPriceFilter, mealFilter, setMealFilter, typeFi
         }
         else
             filter.push(key)
-        console.log(filter)
         return filter
     }
 
