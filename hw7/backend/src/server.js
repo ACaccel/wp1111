@@ -19,7 +19,7 @@ db.once('open', () => {
     ws.id = uuidv4();
     ws.box = ''; // keep track of client's CURRENT chat box
     // wsConnect.initData(ws);
-    ws.onmessage = wsConnect.onMessage(wss, ws);
+    ws.onmessage = wsConnect.onMessage(ws);
   });
 });
 

@@ -48,6 +48,8 @@ const ChatProvider = (props) => {
         })
         break;
       }
+      // modify wsConnect.js first if you want to use it
+      /*
       case 'CLEAR': {
         setMessages(() => ([payload]));
         displayStatus({
@@ -56,6 +58,7 @@ const ChatProvider = (props) => {
         })
         break;
       }
+      */
       default:break;
     }
   }
@@ -138,19 +141,3 @@ const ChatProvider = (props) => {
 const useChat = () => useContext(ChatContext);
 
 export { ChatProvider, useChat };
-
-
-/*      
-      case 'init':
-        setMessages(payload);
-        break;
-      case 'output':
-        setMessages(() => [...messages, ...payload]);
-        break;
-      case 'status':
-        setStatus(payload);
-        break;
-      case 'cleared':
-        setMessages([]);
-        break;
-*/

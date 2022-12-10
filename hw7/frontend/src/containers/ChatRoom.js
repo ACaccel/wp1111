@@ -15,14 +15,7 @@ const ChatBoxesWrapper = styled(Tabs)`
   padding: 20px;
   overflow: auto;
 `;
-/*
-const ChatBoxWrapper = styled.div`
-  height: calc(240px - 36px);
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-`;
-*/
+
 const FootRef = styled.div`
   height: 40px;
 `;
@@ -131,6 +124,7 @@ const ChatRoom = () => {
 
   return (
     <>
+      {/* modify wsConnect.js and useChat.js first if you want to use it */}
       {/*<Button type="primary" danger onClick={clearMessages} >
         Clear
       </Button>*/}
@@ -143,7 +137,6 @@ const ChatRoom = () => {
           activeKey={activeKey}
           onChange={(key) => {
             setActiveKey(key);
-            // extractChat(key);
             startChat(me, key);
           }}
           onEdit={(targetKey, action) => {
@@ -152,18 +145,11 @@ const ChatRoom = () => {
           }}
           items={chatBoxes}
         />
-        {/*
-        <ChatBoxesWrapper>
-          {displayMessages()}
-          <FootRef ref={msgFooter}
-        </ChatBoxesWrapper>
-        */}
         <ChatModal
           open={modalOpen}
           onCreate={({ name }) => {
             setActiveKey(createChatBox(name));
             startChat(me, name);
-            // extractChat(name);
             setModalOpen(false);
           }}
           onCancel={() => {

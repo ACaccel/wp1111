@@ -1,4 +1,3 @@
-import Message from "./models/message";
 import { UserModel, ChatBoxModel, MessageModel } from './models/chatbox.js';
 
 const makeName = (name, to) => {
@@ -24,21 +23,10 @@ const sendData = (data, ws) => {
   ws.send(JSON.stringify(data));
 };
 
-const sendStatus = (payload, ws) => {
-  sendData(['status', payload], ws);
-};
-
-const broadcastMessage = (wss, data, status) => {
-  wss.clients.forEach((client) => {
-    sendData(data, client);
-    sendStatus(status, client);
-  });
-};
-
 const chatBoxes = {};
 
 export default {
-  onMessage: (wss, ws) => (
+  onMessage: (ws) => (
     async (byteString) => {
       const { type, payload } = JSON.parse(byteString.data);
       switch (type) {
@@ -93,6 +81,9 @@ export default {
 
           break;
         }
+        // This will delete all the message db (of all chatboxes)
+        // should be modifed if you want to use it
+        /*
         case 'CLEAR': {
           MessageModel.deleteMany({}, () => {
             sendData({
@@ -103,51 +94,9 @@ export default {
           
           break;
         }
+        */
         default:break;
       }
     }
   )
 }
-
-/*
-  initData: (ws) => {
-    Message.find()
-    .sort({ created_at: -1 })
-    .limit(100)
-    .exec((err, res) => {
-      if (err) throw err;
-      sendData(['init', res], ws);
-    });
-  },
-  */
-
-/*
-        case 'input': 
-          const { name, body } = payload;
-          const message = new Message({ name, body });
-          try {
-            await message.save();
-          } catch (err) {
-            throw new Error('Message DB save error: ' + err);
-          }
-
-          broadcastMessage(
-            wss, 
-            ['output', [payload]], 
-            {
-              type: 'success',
-              msg: 'Message sent.'
-            });
-          break;
-        case 'clear':
-          Message.deleteMany({}, () => {
-            broadcastMessage(
-              wss, 
-              ['cleared', []], 
-              {
-                type: 'info',
-                msg: 'Message cache cleared.'
-              });
-          })
-          break;
-        */
